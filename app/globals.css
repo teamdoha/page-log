@@ -124,3 +124,28 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Ensure dark mode is explicitly handled to avoid hydration mismatches */
+body {
+  @apply bg-background text-foreground;
+}
+
+/* Add a fallback for dark mode to ensure consistency */
+html {
+  color-scheme: light dark;
+}
+
+/* Explicitly set dark mode class on the root element */
+html.dark body {
+  @apply bg-background text-foreground;
+}
+
+/* Add hover effects for buttons */
+button {
+  @apply transition-all duration-300;
+}
+
+/* Update hover effects for buttons to change background to light gray */
+button:hover {
+  @apply cursor-pointer bg-gray-400 text-accent-foreground shadow-lg;
+}
